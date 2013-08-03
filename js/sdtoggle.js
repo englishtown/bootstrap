@@ -3,8 +3,7 @@
  * For standard toggle of EF project only
  * ======================================================================== */
 
-+ function($) {
-  "use strict";
++function($) { "use strict";
 
   // STANDARD TOGGLE CLASS DEFINITION
   // ====================
