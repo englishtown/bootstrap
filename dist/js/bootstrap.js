@@ -1986,16 +1986,16 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   var sdtoogleIconFalse = '✕'
 
   var sdtoggleCallbacks = {
-    true: sdtoggleCallbackTrue,
-    false: sdtoggleCallbackFalse
+    'true': sdtoggleCallbackTrue,
+    'false': sdtoggleCallbackFalse
   }
   var sdtoogleLabelTexts = {
-    true: sdtoogleLabelTrue,
-    false: sdtoogleLabelFalse
+    'true': sdtoogleLabelTrue,
+    'false': sdtoogleLabelFalse
   }
   var sdtoogleIconTexts = {
-    true: sdtoogleIconTrue,
-    false: sdtoogleIconFalse
+    'true': sdtoogleIconTrue,
+    'false': sdtoogleIconFalse
   }
 
 
@@ -2007,8 +2007,9 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
       var $this = $(this)
       var data = $this.data(sdtoggleBase)
       var val = data === true
+      var valKey = val.toString()
 
-      setText($this, val)
+      setText($this, valKey)
 
       if (data === undefined) $this.attr(sdtoggleData, false)
 
@@ -2044,17 +2045,19 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   }
 
   var setToggle = function($this, val) {
+    var valKey = val.toString()
 
     $this
       .attr(sdtoggleData, val)
       .data(sdtoggleBase, val)
-      .trigger(sdtoggleCallbacks[val])
-    setText($this, val)
+      .trigger(sdtoggleCallbacks[valKey])
+
+    setText($this, valKey)
   }
 
-  var setText = function($this, val) {
-    if ($this.is(sdtoggleLabel)) $this.find('.btn').text(sdtoogleLabelTexts[val])
-    if ($this.is(sdtoggleIcon)) $this.find('.btn').text(sdtoogleIconTexts[val])
+  var setText = function($this, valKey) {
+    if ($this.is(sdtoggleLabel)) $this.find('.btn').text(sdtoogleLabelTexts[valKey])
+    if ($this.is(sdtoggleIcon)) $this.find('.btn').text(sdtoogleIconTexts[valKey])
   }
 
   // STANDARD TOGGLE DATA-API
