@@ -6382,21 +6382,21 @@ fieldset[disabled] .sdtoggle {
   padding: 5px 10px;
 }
 
-.sdtoggle[data-sdtoggle="true"] {
+.sdtoggle.on {
   padding: 0 25px 0 0;
   border-color: #00c3ed;
 }
 
-.sdtoggle[data-sdtoggle="true"]:hover {
+.sdtoggle.on:hover {
   border-color: #00d2ff;
 }
 
-.sdtoggle[data-sdtoggle="true"] .btn {
+.sdtoggle.on .btn {
   float: left;
   background-color: #00c3ed;
 }
 
-.sdtoggle[data-sdtoggle="true"]:hover .btn {
+.sdtoggle.on:hover .btn {
   background-color: #00d2ff;
 }
 
