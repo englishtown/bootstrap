@@ -14,6 +14,16 @@ module.exports = function(grunt) {
         clean: {
             dist: ['dist']
         },
+        copy: {
+          dist: {
+            files: [{
+                expand: true,
+                flatten: true,
+                src: ["fonts/*"],
+                dest: 'dist/fonts/'
+            }]
+          }
+        },
         concat: {
             options: {
                 banner: '<%= banner %><%= jqueryCheck %>',
@@ -100,6 +110,7 @@ module.exports = function(grunt) {
 
 
     // These plugins provide necessary tasks.
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -120,7 +131,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dist-css', ['recess']);
 
     // Full distribution task.
-    grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
+    grunt.registerTask('dist', ['clean', 'copy', 'dist-css', 'dist-js']);
 
     // Default task.
     grunt.registerTask('default', ['test', 'dist']);
