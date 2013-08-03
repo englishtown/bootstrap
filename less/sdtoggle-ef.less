@@ -1,0 +1,69 @@
+//
+// Standard toggle
+// --------------------------------------------------
+
+.sdtoggle {
+	display: inline-block;
+	padding: 0 0 0 @standard-toggle-btn-gap;
+	border: 3px solid @standard-toggle-border;
+	cursor: pointer;
+	.user-select(none);
+
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		.opacity(@brand-variant-disable-computed);
+	}
+
+	&:hover {
+		border-color: @standard-toggle-hover-border;
+	}
+	
+	&[disabled]:hover {
+		border-color: @standard-toggle-border;
+	}
+
+	.btn {
+		padding: @standard-toggle-padding;
+		color: @standard-toggle-color;
+		float: right;
+		line-height: 15px;
+		font-size: @standard-toggle-fontsize;
+		background-color: @standard-toggle-btn-bg;
+	}
+
+	&:hover .btn{
+		background-color: @standard-toggle-btn-hover-bg;
+	}
+
+	&:hover[disabled] .btn{
+		background-color: @standard-toggle-btn-bg;
+	}
+
+	&.sdtoggle-label .btn{
+		padding: @standard-toggle-label-padding;
+	}
+
+	&.sdtoggle-icon .btn{
+		padding: @standard-toggle-icon-padding;
+	}
+
+	&[data-sdtoggle="true"] {
+		padding: 0 @standard-toggle-btn-gap 0 0;
+		border-color: @standard-toggle-active-border;
+	}
+
+	&[data-sdtoggle="true"]:hover {
+		border-color: @standard-toggle-active-hover-border;
+	}
+
+	&[data-sdtoggle="true"] .btn {
+		float: left;
+		background-color: @standard-toggle-btn-active-bg;
+	}
+
+	&[data-sdtoggle="true"]:hover .btn {
+		background-color: @standard-toggle-btn-active-hover-bg;
+	}
+
+}

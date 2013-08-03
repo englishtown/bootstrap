@@ -6,12 +6,95 @@ lead: "All additional components needed by EF, which built to provide toggles, s
 base_url: "../"
 ---
 
+  <!-- STANDARD TOGGLES
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="sdtoggle">Standard toggles</h1>
+    </div>
+
+    <h2 id="sdtoggle-basic">Standard toggle - Basic</h2>
+    <p>Basic toggle style. If <code>data-sdtoggle="false"</code>, we can leave blank by default.</p>
+    <div class="bs-example">
+      <span class="sdtoggle">
+        <button class="btn"></button>
+      </span>
+      <span class="sdtoggle" data-sdtoggle="true">
+        <button class="btn"></button>
+      </span>
+      <span class="sdtoggle" disabled="disabled">
+        <button class="btn"></button>
+      </span>
+    </div>
+    {% highlight html %}
+    <span class="sdtoggle">
+      <button class="btn"></button>
+    </span>
+    <span class="sdtoggle" data-sdtoggle="true">
+      <button class="btn"></button>
+    </span>
+    <span class="sdtoggle" disabled="disabled">
+      <button class="btn"></button>
+    </span>
+    {% endhighlight %}
+
+    <h2 id="sdtoggle-label">Standard toggle - Label</h2>
+    <p>Label toggle style with <code>sdtoggle-label</code> class. If <code>data-sdtoggle="false"</code>, we can leave blank by default.</p>
+    <div class="bs-example">
+      <span class="sdtoggle sdtoggle-label">
+        <button class="btn"></button>
+      </span>
+      <span class="sdtoggle sdtoggle-label" data-sdtoggle="true">
+        <button class="btn"></button>
+      </span>
+      <span class="sdtoggle sdtoggle-label" disabled="disabled">
+        <button class="btn"></button>
+      </span>
+    </div>
+    {% highlight html %}
+    <span class="sdtoggle sdtoggle-label">
+      <button class="btn"></button>
+    </span>
+    <span class="sdtoggle sdtoggle-label" data-sdtoggle="true">
+      <button class="btn"></button>
+    </span>
+    <span class="sdtoggle sdtoggle-label" disabled="disabled">
+      <button class="btn"></button>
+    </span>
+    {% endhighlight %}
+
+    <h2 id="sdtoggle-icon">Standard toggle - Icon</h2>
+    <p>Icon toggle style with <code>sdtoggle-icon</code> class. If <code>data-sdtoggle="false"</code>, we can leave blank by default.</p>
+    <div class="bs-example">
+      <span class="sdtoggle sdtoggle-icon">
+        <button class="btn"></button>
+      </span>
+      <span class="sdtoggle sdtoggle-icon" data-sdtoggle="true">
+        <button class="btn"></button>
+      </span>
+      <span class="sdtoggle sdtoggle-icon" disabled="disabled">
+        <button class="btn"></button>
+      </span>
+    </div>
+    {% highlight html %}
+    <span class="sdtoggle sdtoggle-icon">
+      <button class="btn"></button>
+    </span>
+    <span class="sdtoggle sdtoggle-icon" data-sdtoggle="true">
+      <button class="btn"></button>
+    </span>
+    <span class="sdtoggle sdtoggle-icon" disabled="disabled">
+      <button class="btn"></button>
+    </span>
+    {% endhighlight %}
+
+  </div>
 
   <!-- PRELOADERS
   ================================================== -->
   <div class="bs-docs-section">
     <div class="page-header">
-      <h1 id="preloaders">PRELOADERS</h1>
+      <h1 id="preloaders">Preloaders</h1>
     </div>
 
     <h2 id="preloaders-spinning">Spinning preloader</h2>
@@ -20,17 +103,17 @@ base_url: "../"
       <div class="preloader-spin">
       </div>
     </div>
-{% highlight html %}
-<div class="preloader-spin"></div>
-{% endhighlight %}
+    {% highlight html %}
+    <div class="preloader-spin"></div>
+    {% endhighlight %}
     <h2 id="preloaders-spinning-sizes">Spinning preloader sizes</h2>
     <p>Spinning preloader sizes</p>
     <div class="bs-example">
       <div class="preloader-spin preloader-spin-small"></div>
     </div>
-{% highlight html %}
-<div class="preloader-spin preloader-spin-small"></div>
-{% endhighlight %}
+    {% highlight html %}
+    <div class="preloader-spin preloader-spin-small"></div>
+    {% endhighlight %}
 
     <h2 id="preloaders-linear">Linear preloader</h2>
     <p>Linear preloader</p>
@@ -38,14 +121,15 @@ base_url: "../"
       <div class="preloader-linear">
       </div>
     </div>
-{% highlight html %}
-<div class="preloader-linear"></div>
-{% endhighlight %}
+    {% highlight html %}
+    <div class="preloader-linear"></div>
+    {% endhighlight %}
     <h2 id="preloaders-linear-sizes">Linear preloader sizes</h2>
     <p>Linear preloader sizes</p>
     <div class="bs-example">
       <div class="preloader-linear preloader-linear-small"></div>
     </div>
-{% highlight html %}
-<div class="preloader-linear preloader-linear-small"></div>
-{% endhighlight %}
+    {% highlight html %}
+    <div class="preloader-linear preloader-linear-small"></div>
+    {% endhighlight %}
+  </div>
