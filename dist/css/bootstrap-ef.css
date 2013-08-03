@@ -6330,6 +6330,76 @@ fieldset[disabled] .btn-info.active {
   border-left: 8px solid transparent;
 }
 
+.sdtoggle {
+  display: inline-block;
+  padding: 0 0 0 25px;
+  cursor: pointer;
+  border: 3px solid #4a4a4a;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.sdtoggle.disabled,
+.sdtoggle[disabled],
+fieldset[disabled] .sdtoggle {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.sdtoggle:hover {
+  border-color: #6a6a6a;
+}
+
+.sdtoggle[disabled]:hover {
+  border-color: #4a4a4a;
+}
+
+.sdtoggle .btn {
+  float: right;
+  padding: 12px 18px;
+  font-size: 14px;
+  line-height: 15px;
+  color: #ffffff;
+  background-color: #4a4a4a;
+}
+
+.sdtoggle:hover .btn {
+  background-color: #6a6a6a;
+}
+
+.sdtoggle:hover[disabled] .btn {
+  background-color: #4a4a4a;
+}
+
+.sdtoggle.sdtoggle-label .btn {
+  padding: 5px 10px;
+}
+
+.sdtoggle.sdtoggle-icon .btn {
+  padding: 5px 10px;
+}
+
+.sdtoggle.on {
+  padding: 0 25px 0 0;
+  border-color: #00c3ed;
+}
+
+.sdtoggle.on:hover {
+  border-color: #00d2ff;
+}
+
+.sdtoggle.on .btn {
+  float: left;
+  background-color: #00c3ed;
+}
+
+.sdtoggle.on:hover .btn {
+  background-color: #00d2ff;
+}
+
 .nav-tabs > li > a {
   padding-top: 9px;
   border-bottom-width: 0;
