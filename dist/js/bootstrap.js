@@ -2011,11 +2011,13 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
       setText($this, valKey)
 
-      if (data === undefined) $this.attr(sdtoggleData, false)
+      if (val) {
+        $this.addClass('on')
+      } else {
+        $this.attr(sdtoggleData, false)
+      }
 
     })
-
-
   }
 
   StandardToggle.prototype.toggle = function(e) {
@@ -2023,7 +2025,6 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     if ($this.is('.disabled, [disabled]')) return
 
-    e.preventDefault()
     e.stopPropagation()
 
     if ($this.data(sdtoggleBase)) {
@@ -2031,6 +2032,8 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     } else {
       setToggle($this, true)
     }
+
+    $this.toggleClass('on')
 
   }
 
