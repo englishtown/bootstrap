@@ -30,7 +30,7 @@
   border-color: @brand-trivia;
   color: @brand-trivia;
   .placeholder(@brand-trivia-disable);
-  box-shadow: none;
+  .box-shadow-clear();
 
   &:hover {
     border-color: @brand-trivia-hover;
@@ -106,17 +106,17 @@
 // element gets special love because it's special, and that's a fact!
 
 .form-control {
-  &.input-large {
+  &.input-lg {
     .input-horizontal-padding(@padding-large-horizontal);
   }
-  &.input-small {
+  &.input-sm {
     .input-horizontal-padding(@padding-small-horizontal);
   }
   select& {
-	  &.input-large {
+	  &.input-lg {
 	    line-height: @line-height-computed;
 	  }
-	  &.input-small {
+	  &.input-sm {
 	    line-height: @line-height-computed;
 	  }
 	}
@@ -144,10 +144,10 @@
 .input-group-addon {
   padding: @padding-base-vertical - 1 @padding-base-horizontal;
 
-  &.input-small {
+  &.input-sm {
     padding: @padding-small-vertical - 1 @padding-small-horizontal;
   }
-  &.input-large {
+  &.input-lg {
     padding: @padding-large-vertical - 1 @padding-large-horizontal;
   }
 }
