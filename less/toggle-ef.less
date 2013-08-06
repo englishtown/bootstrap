@@ -1,0 +1,71 @@
+//
+// Standard toggle
+// --------------------------------------------------
+
+.toggle {
+	display: inline-block;
+	padding: 0 0 0 @toggle-btn-gap;
+	border: 3px solid @toggle-border;
+	cursor: pointer;
+	.user-select(none);
+
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		.opacity(@brand-variant-disable-computed);
+	}
+
+	&:hover {
+		border-color: @toggle-hover-border;
+	}
+	
+	&[disabled]:hover {
+		border-color: @toggle-border;
+	}
+
+	.btn {
+		min-height: @toggle-btn-height-base;
+		padding: @toggle-padding;
+		color: @toggle-color;
+		float: right;
+		line-height: 15px;
+		font-size: @toggle-fontsize;
+		background-color: @toggle-btn-bg;
+		outline: 0;
+	}
+
+	&:hover .btn{
+		background-color: @toggle-btn-hover-bg;
+	}
+
+	&:hover[disabled] .btn{
+		background-color: @toggle-btn-bg;
+	}
+
+	&.toggle-label .btn{
+		padding: @toggle-label-padding;
+	}
+
+	&.toggle-icon .btn{
+		padding: @toggle-icon-padding;
+	}
+
+	&.on {
+		padding: 0 @toggle-btn-gap 0 0;
+		border-color: @toggle-active-border;
+	}
+
+	&.on:hover {
+		border-color: @toggle-active-hover-border;
+	}
+
+	&.on .btn {
+		float: left;
+		background-color: @toggle-btn-active-bg;
+	}
+
+	&.on:hover .btn {
+		background-color: @toggle-btn-active-hover-bg;
+	}
+
+}
