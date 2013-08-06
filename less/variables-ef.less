@@ -55,6 +55,8 @@
 // -------------------------
 
 @body-bg:               #fff;
+@body-font-size:        12px;
+@body-line-height:      1.666666667;
 @text-color:            @brand-default;
 
 // Links
@@ -71,12 +73,12 @@
 @font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
 @font-family-base:        Arial, Helvetica, sans-serif;
 
-@font-size-base:          12px;
-@font-size-small:         ceil(@font-size-base * 1); // ~12px
-@font-size-large:         ceil(@font-size-base * 1); // ~12px
-@font-size-xlarge:        ceil(@font-size-base * 1.16); // ~14px
+@font-size-small:         ceil(@font-size-base * 0.85); // ~12px
+@font-size-base:          14px;
+@font-size-large:         ceil(@font-size-base * 1.28); // ~18px
+@font-size-xlarge:        ceil(@font-size-base * 1.428); // ~20px
 
-@line-height-base:        1.6666666667; // 20/12
+@line-height-base:        1.428571429; // 20/14
 @line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
 
 @headings-font-family:    @font-family-base;
@@ -620,3 +622,10 @@
 @grid-gutter-width:         30px;
 // Point at which the navbar stops collapsing
 @grid-float-breakpoint:     @screen-tablet;
+
+
+// Toggles
+// --------------------------------------------------
+
+// Colors of toggle
+@toggle-active-bg:         @brand-active;
