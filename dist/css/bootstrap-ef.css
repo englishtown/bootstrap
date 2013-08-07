@@ -356,6 +356,17 @@ hr {
   border-top: 1px solid #eeeeee;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
 p {
   margin: 0 0 10px;
 }
@@ -841,7 +852,7 @@ pre code {
 }
 
 @media (min-width: 768px) {
-  .row {
+  .container .row {
     margin-right: -15px;
     margin-left: -15px;
   }
@@ -957,7 +968,7 @@ pre code {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .container {
     max-width: 728px;
   }
@@ -1375,7 +1386,7 @@ table th[class^="col-"] {
 .table > thead > tr.active > th,
 .table > tbody > tr.active > th,
 .table > tfoot > tr.active > th {
-  background-color: #ececed;
+  background-color: #00c3ed;
 }
 
 .table > thead > tr > td.success,
@@ -1931,7 +1942,7 @@ textarea.input-sm {
 }
 
 @media (min-width: 768px) {
-  .form-horizontal .form-group {
+  .container .form-horizontal .form-group {
     margin-right: -15px;
     margin-left: -15px;
   }
@@ -2735,6 +2746,10 @@ input[type="button"].btn-block {
   margin-right: -15px;
 }
 
+.list-group-item > .badge + .badge {
+  margin-right: 0;
+}
+
 .list-group-item-heading {
   margin-top: 0;
   margin-bottom: 5px;
@@ -3292,7 +3307,6 @@ button.close {
 }
 
 .navbar-nav {
-  margin-top: 10px;
   margin-bottom: 15px;
 }
 
@@ -3348,6 +3362,65 @@ button.close {
 .navbar-fixed-bottom {
   bottom: 0;
   margin-bottom: 0;
+}
+
+.nav-collapse {
+  padding-bottom: 15px;
+}
+
+.nav-collapse:before,
+.nav-collapse:after {
+  display: table;
+  content: " ";
+}
+
+.nav-collapse:after {
+  clear: both;
+}
+
+.nav-collapse:before,
+.nav-collapse:after {
+  display: table;
+  content: " ";
+}
+
+.nav-collapse:after {
+  clear: both;
+}
+
+.nav-collapse:before,
+.nav-collapse:after {
+  display: table;
+  content: " ";
+}
+
+.nav-collapse:after {
+  clear: both;
+}
+
+.nav-collapse:before,
+.nav-collapse:after {
+  display: table;
+  content: " ";
+}
+
+.nav-collapse:after {
+  clear: both;
+}
+
+.nav-collapse:before,
+.nav-collapse:after {
+  display: table;
+  content: " ";
+}
+
+.nav-collapse:after {
+  clear: both;
+}
+
+.navbar-toggle + .nav-collapse {
+  width: 100%;
+  margin-top: 50px;
 }
 
 @media (max-width: 768px) {
@@ -3584,6 +3657,7 @@ button.close {
   .nav-collapse.collapse {
     display: block !important;
     height: auto !important;
+    padding-bottom: 0;
     overflow: visible !important;
   }
 }
@@ -4243,8 +4317,8 @@ button.close {
 }
 
 .tooltip.in {
-  opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 0.9;
+  filter: alpha(opacity=90);
 }
 
 .tooltip.top {
@@ -4992,8 +5066,6 @@ a.list-group-item.active > .badge,
 }
 
 .carousel-control.left {
-  background-color: rgba(0, 0, 0, 0.0001);
-  background-color: transparent;
   background-image: -webkit-gradient(linear, 0 top, 100% top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.0001)));
   background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
   background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
@@ -5005,8 +5077,6 @@ a.list-group-item.active > .badge,
 .carousel-control.right {
   right: 0;
   left: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-color: transparent;
   background-image: -webkit-gradient(linear, 0 top, 100% top, from(rgba(0, 0, 0, 0.0001)), to(rgba(0, 0, 0, 0.5)));
   background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
   background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
@@ -5819,6 +5889,124 @@ select.form-control.input-lg {
 
 select.form-control.input-sm {
   line-height: 20px;
+}
+
+.icon-glyph-error,
+.icon-glyph-success,
+.icon-glyph-warning {
+  float: right;
+  margin-top: -30px !important;
+  margin-right: 10px;
+}
+
+.icon-glyph-error:before,
+.icon-glyph-success:before,
+.icon-glyph-warning:before,
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  display: table;
+  content: " ";
+}
+
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  clear: both;
+}
+
+.icon-glyph-error:before,
+.icon-glyph-success:before,
+.icon-glyph-warning:before,
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  display: table;
+  content: " ";
+}
+
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  clear: both;
+}
+
+.icon-glyph-error:before,
+.icon-glyph-success:before,
+.icon-glyph-warning:before,
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  display: table;
+  content: " ";
+}
+
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  clear: both;
+}
+
+.icon-glyph-error:before,
+.icon-glyph-success:before,
+.icon-glyph-warning:before,
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  display: table;
+  content: " ";
+}
+
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  clear: both;
+}
+
+.icon-glyph-error:before,
+.icon-glyph-success:before,
+.icon-glyph-warning:before,
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  display: table;
+  content: " ";
+}
+
+.icon-glyph-error:after,
+.icon-glyph-success:after,
+.icon-glyph-warning:after {
+  clear: both;
+}
+
+.icon-glyph-error:before,
+.icon-glyph-success:before,
+.icon-glyph-warning:before {
+  display: none !important;
+  width: 19px;
+  height: 19px;
+  line-height: 19px !important;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 9999px;
+}
+
+.has-error .icon-glyph-error:before {
+  display: table !important;
+  background-color: #ff0054;
+  content: "\f00d";
+}
+
+.has-success .icon-glyph-success:before {
+  display: table !important;
+  background-color: #8aca01;
+  content: "\f00c";
+}
+
+.has-warning .icon-glyph-warning:before {
+  display: table !important;
+  background-color: #ff9000;
+  content: "\f12a";
 }
 
 .has-warning .help-block,
@@ -6735,17 +6923,8 @@ fieldset[disabled] .sdtoggle {
   outline: none;
 }
 
-.toggle-btn-group .btn {
-  padding: 0.34em 1em 0.25em;
-}
-
 .toggle-btn-group .active {
   background-color: #00c3ed;
-}
-
-.toggle-btn-group-icons .btn {
-  padding: 0.22em 0.79em 0.07em;
-  font-size: 20px;
 }
 
 .clearfix:before,
