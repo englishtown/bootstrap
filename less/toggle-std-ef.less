@@ -3,10 +3,12 @@
 // --------------------------------------------------
 
 .toggle {
+	min-height: @Toggle-height-base;
+	min-width: @toggle-width-default;
 	display: inline-block;
-	padding: 0 0 0 @toggle-btn-gap;
 	border: 3px solid @toggle-border;
 	cursor: pointer;
+	position: relative;
 	.user-select(none);
 
 	&.disabled,
@@ -24,14 +26,17 @@
 	}
 
 	.btn {
+		min-width: @toggle-btn-width-default;
 		min-height: @toggle-btn-height-base;
 		padding: @toggle-padding;
 		color: @toggle-color;
-		float: right;
 		line-height: 15px;
 		font-size: @toggle-fontsize;
 		background-color: @toggle-btn-bg;
 		outline: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
 	}
 
 	&:hover .btn{
@@ -42,16 +47,31 @@
 		background-color: @toggle-btn-bg;
 	}
 
-	&.toggle-label .btn{
-		padding: @toggle-label-padding;
+	&.toggle-label.toggle-me{
+		min-width: @toggle-width-medium;
 	}
 
-	&.toggle-icon .btn{
-		padding: @toggle-icon-padding;
+	&.toggle-label.toggle-me .btn{
+		min-width: @toggle-btn-width-medium;
+	}
+
+	&.toggle-label.toggle-lg{
+		min-width: @toggle-width-large;
+	}
+
+	&.toggle-label.toggle-lg .btn{
+		min-width: @toggle-btn-width-large;
+	}
+
+	&.toggle-label.toggle-xl{
+		min-width: @toggle-width-xlarge;
+	}
+
+	&.toggle-label.toggle-xl .btn{
+		min-width: @toggle-btn-width-xlarge;
 	}
 
 	&.on {
-		padding: 0 @toggle-btn-gap 0 0;
 		border-color: @toggle-active-border;
 	}
 
@@ -60,7 +80,8 @@
 	}
 
 	&.on .btn {
-		float: left;
+		left:0;
+		right: auto;
 		background-color: @toggle-btn-active-bg;
 	}
 

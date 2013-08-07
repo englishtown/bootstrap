@@ -14,13 +14,15 @@
   var toggleData = 'data-' + toggleBase
   var toggleCallbackOn = 'on.bs.toggle'
   var toggleCallbackOff = 'off.bs.toggle'
+  var dataLabelOn = 'label-on'
+  var dataLabelOff = 'label-off'
 
   var toggleActiveClassName = 'on'
 
   var toggleLabel = '.toggle-label'
   //Default label text
-  var toggleLabelOn = 'ON'
-  var toggleLabelOff = 'OFF'
+  var dataLabelOnTextDefault = 'ON'
+  var dataLabelOffTextDefault = 'OFF'
 
   var toggleIcon = '.toggle-icon'
   var toggleIconOnClassName = 'icon-ok'
@@ -29,10 +31,6 @@
   var toggleCallbacks = {
     'true': toggleCallbackOn,
     'false': toggleCallbackOff
-  }
-  var toggleLabelTexts = {
-    'true': toggleLabelOn,
-    'false': toggleLabelOff
   }
 
   var toggleIconClassNames = {
@@ -50,7 +48,6 @@
       var val = data === true
 
       setToggle($this, val)
-
     })
   }
 
@@ -81,7 +78,7 @@
   var setToggle = function($this, val) {
     var valKey = val.toString()
     var valOppositeKey = (!val).toString()
-
+    
     $this
       .attr(toggleData, val)
       .data(toggleBase, val)
@@ -92,10 +89,21 @@
       $this.removeClass(toggleActiveClassName)
     }
 
+    if ($this.is(toggleLabel)) {
+      var dataLabelOnText = $this.data(dataLabelOn)
+      var dataLabelOffText = $this.data(dataLabelOff)
+
+      var toggleLabelTexts = {
+        'true': (dataLabelOnText) ? dataLabelOnText : dataLabelOnTextDefault,
+        'false': (dataLabelOffText) ? dataLabelOffText : dataLabelOffTextDefault
+      }
+
+      $this.find('.btn').text(toggleLabelTexts[valKey])
+    }
+
     if ($this.is(toggleIcon)) $this.find('.btn').addClass(toggleIconClassNames[valKey]).removeClass(toggleIconClassNames[valOppositeKey])
 
-    if ($this.is(toggleLabel)) $this.find('.btn').text(toggleLabelTexts[valKey])
-
+    return $this;
   }
 
   // STANDARD TOGGLE DATA-API
