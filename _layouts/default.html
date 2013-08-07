@@ -6,12 +6,13 @@
     <!-- Place anything custom after this. -->
   </head>
   <body>
+    <a class="sr-only" href="#content">Skip navigation</a>
 
     <!-- Docs master nav -->
     {% include nav-main.html %}
 
     <!-- Docs page layout -->
-    <div class="bs-header">
+    <div class="bs-header" id="content" role="banner">
       <div class="container">
         <h1>{{ page.title }}</h1>
         <p>{{ page.lead }}</p>
@@ -21,16 +22,16 @@
     <div class="container bs-docs-container">
       <div class="row">
         <div class="col-lg-3">
-          <div class="bs-sidebar">
+          <div class="bs-sidebar" role="complementary">
             <ul class="nav bs-sidenav">
               {% if page.slug == "getting-started" %}
                 {% include nav-getting-started.html %}
               {% elsif page.slug == "css" %}
                 {% include nav-css.html %}
+              {% elsif page.slug == "css-ef" %}
+                {% include nav-css-ef.html %}
               {% elsif page.slug == "components" %}
                 {% include nav-components.html %}
-              {% elsif page.slug == "components-ef" %}
-                {% include nav-components-ef.html %}
               {% elsif page.slug == "js" %}
                 {% include nav-javascript.html %}
               {% elsif page.slug == "customize" %}
@@ -39,19 +40,16 @@
             </ul>
           </div>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9" role="main">
           {{ content }}
         </div>
       </div>
 
     </div>
 
-    <!-- Quick back to top -->
-    <a href="#" class="bs-top">Back to top</a>
-
     <!-- Footer
     ================================================== -->
-    <footer class="bs-footer">
+    <footer class="bs-footer" role="contentinfo">
       <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
       <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
       <ul class="footer-links">

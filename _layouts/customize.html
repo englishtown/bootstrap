@@ -6,19 +6,20 @@
     <!-- Place anything custom after this. -->
   </head>
   <body data-spy="scroll" data-target=".bs-sidebar">
+    <a class="sr-only" href="#content">Skip navigation</a>
 
     <!-- Docs master nav -->
     {% include nav-main.html %}
 
     <!-- Docs page layout -->
-    <div class="bs-header">
+    <div class="bs-header" id="content" role="banner">
       <div class="container">
         <h1>{{ page.title }}</h1>
         <p>{{ page.lead }}</p>
       </div>
     </div>
 
-    <div class="bs-customize-placeholder">
+    <div class="bs-customize-placeholder" role="main">
       <div class="container bs-docs-container">
         <p class="lead">Until RC2, the Bootstrap 3 customizer will be disabled. In the mean time, snag the <a href="{{ site.repo }}/releases">compiled CSS and JavaScript</a>. Hang tight!</p>
       </div>

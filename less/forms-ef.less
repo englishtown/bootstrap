@@ -24,8 +24,7 @@
 // input[type="tel"]
 // input[type="color"]
 
-.form-control
-{
+.form-control {
   .input-horizontal-padding(@padding-base-horizontal);
   border-color: @brand-trivia;
   color: @brand-trivia;
@@ -52,10 +51,10 @@
     background-color: @body-bg;
     .placeholder(@brand-trivia-disable);
     &:hover {
-    	border-color: @brand-trivia-disable;
-	    color: @brand-trivia-disable;
-	    background-color: @body-bg;
-	    .placeholder(@brand-trivia-disable);
+      border-color: @brand-trivia-disable;
+      color: @brand-trivia-disable;
+      background-color: @body-bg;
+      .placeholder(@brand-trivia-disable);
     }
   }
 
@@ -70,7 +69,7 @@
         ;
 
     &:hover {
-    	color: contrast(@brand-default-hover);
+      color: contrast(@brand-default-hover);
         border-color: @brand-default-hover; 
         background-color: @brand-default-hover;
     }
@@ -91,9 +90,9 @@
         border-color: transparent;
         background-color: @brand-default-disable;
         &:hover {
-        	color: @brand-default;
-	        border-color: transparent;
-	        background-color: @brand-default-disable;
+          color: @brand-default;
+          border-color: transparent;
+          background-color: @brand-default-disable;
         }
     }
   }
@@ -113,14 +112,50 @@
     .input-horizontal-padding(@padding-small-horizontal);
   }
   select& {
-	  &.input-lg {
-	    line-height: @line-height-computed;
-	  }
-	  &.input-sm {
-	    line-height: @line-height-computed;
-	  }
-	}
+    &.input-lg {
+      line-height: @line-height-computed;
+    }
+    &.input-sm {
+      line-height: @line-height-computed;
+    }
+  }
 }
+
+// Form control glyphicon helper class
+
+
+.icon-glyph-error,
+.icon-glyph-success,
+.icon-glyph-warning {
+  @icon-glyph-size: 19px;
+
+  .clearfix;
+  margin-top: -(@input-height-base - ceil(@icon-glyph-size / 2)) !important; // overwrite font awesome
+  margin-right: @padding-small-horizontal;
+  float: right;
+
+  &:before {
+    .square(@icon-glyph-size);
+    display: none !important; // overwrite font awesome
+    border-radius: 9999px;
+    color: @btn-default-color;
+    line-height: @icon-glyph-size !important; // overwrite font awesome
+    text-align: center;
+  }
+
+}
+
+.show-glyph-icon(@class, @bg, @content) {
+  (~".has-@{class} .icon-glyph-@{class}:before") {
+    display: table !important;
+    background-color: @bg;
+    content: @content;
+  }
+}
+
+.show-glyph-icon("error", @brand-error, "\f00d");
+.show-glyph-icon("success", @brand-success, "\f00c");
+.show-glyph-icon("warning", @brand-warning, "\f12a");
 
 // Form control feedback states
 //

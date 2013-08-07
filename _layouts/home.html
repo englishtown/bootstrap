@@ -6,6 +6,7 @@
     <!-- Place anything custom after this. -->
   </head>
   <body class="bs-docs-home">
+    <a class="sr-only" href="#content">Skip navigation</a>
 
     <!-- Docs master nav -->
     {% include nav-main.html %}
@@ -13,7 +14,7 @@
     <!-- Page content of course! -->
     {{ content }}
 
-    <div class="container">
+    <div class="container" role="contentinfo">
       <ul class="bs-masthead-links">
         <li>
           <a href="{{ site.repo }}" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub project</a>
