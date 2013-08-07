@@ -14,14 +14,17 @@
   var toggleData = 'data-' + toggleBase
   var toggleCallbackOn = 'on.bs.toggle'
   var toggleCallbackOff = 'off.bs.toggle'
-  var toggleLabel = '.toggle-label'
-  var toggleIcon = '.toggle-icon'
 
+  var toggleActiveClassName = 'on'
+
+  var toggleLabel = '.toggle-label'
   //Default label text
   var toggleLabelOn = 'ON'
   var toggleLabelOff = 'OFF'
-  var toggleIconTrue = '✓'
-  var toggleIconFalse = '✕'
+
+  var toggleIcon = '.toggle-icon'
+  var toggleIconOnClassName = 'icon-ok'
+  var toggleIconOffClassName = 'icon-remove'
 
   var toggleCallbacks = {
     'true': toggleCallbackOn,
@@ -31,11 +34,11 @@
     'true': toggleLabelOn,
     'false': toggleLabelOff
   }
-  var toggleIconTexts = {
-    'true': toggleIconTrue,
-    'false': toggleIconFalse
-  }
 
+  var toggleIconClassNames = {
+    'true': toggleIconOnClassName,
+    'false': toggleIconOffClassName
+  }
 
   var Toggle = function(element) {
     //TODO: trigger $.fn.toggle via JAVASCRIPT if necessary in the future
@@ -45,15 +48,8 @@
       var $this = $(this)
       var data = $this.data(toggleBase)
       var val = data === true
-      var valKey = val.toString()
 
-      setText($this, valKey)
-
-      if (val) {
-        $this.addClass('on')
-      } else {
-        $this.attr(toggleData, false)
-      }
+      setToggle($this, val)
 
     })
   }
@@ -65,13 +61,10 @@
 
     e.stopPropagation()
 
-    if ($this.data(toggleBase)) {
-      setToggle($this, false)
-    } else {
-      setToggle($this, true)
-    }
+    var val = !$this.data(toggleBase)
+    var valKey = val.toString()
 
-    $this.toggleClass('on')
+    setToggle($this, val).trigger(toggleCallbacks[valKey])
 
   }
 
@@ -87,18 +80,22 @@
 
   var setToggle = function($this, val) {
     var valKey = val.toString()
+    var valOppositeKey = (!val).toString()
 
     $this
       .attr(toggleData, val)
       .data(toggleBase, val)
-      .trigger(toggleCallbacks[valKey])
 
-    setText($this, valKey)
-  }
+    if (val) {
+      $this.addClass(toggleActiveClassName)
+    } else {
+      $this.removeClass(toggleActiveClassName)
+    }
 
-  var setText = function($this, valKey) {
+    if ($this.is(toggleIcon)) $this.find('.btn').addClass(toggleIconClassNames[valKey]).removeClass(toggleIconClassNames[valOppositeKey])
+
     if ($this.is(toggleLabel)) $this.find('.btn').text(toggleLabelTexts[valKey])
-    if ($this.is(toggleIcon)) $this.find('.btn').text(toggleIconTexts[valKey])
+
   }
 
   // STANDARD TOGGLE DATA-API
