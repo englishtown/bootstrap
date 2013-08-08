@@ -121,8 +121,7 @@
   }
 }
 
-// Form control glyphicon helper class
-
+// Glyphicon icons
 
 .icon-glyph-error,
 .icon-glyph-success,
@@ -145,17 +144,17 @@
 
 }
 
-.show-glyph-icon(@class, @bg, @content) {
+.show-glyph-icon(@class, @bg, @icon) {
   (~".has-@{class} .icon-glyph-@{class}:before") {
     display: table !important;
     background-color: @bg;
-    content: @content;
+    content: @icon;
   }
 }
 
-.show-glyph-icon("error", @brand-error, "\f00d");
-.show-glyph-icon("success", @brand-success, "\f00c");
-.show-glyph-icon("warning", @brand-warning, "\f12a");
+.show-glyph-icon("error", @brand-error, @remove);
+.show-glyph-icon("success", @brand-success, @ok);
+.show-glyph-icon("warning", @brand-warning, @exclamation);
 
 // Form control feedback states
 //

@@ -5,7 +5,10 @@
   , "keywords": ["bootstrap", "css"]
   , "homepage": "http://englishtown.github.com/bootstrap/"
   , "author": "Twitter Inc."
-  , "scripts": { "test": "grunt test" }
+  , "scripts": {
+       "test": "grunt test"
+     , "postinstall": "bower install"
+  }
   , "repository": {
       "type": "git"
     , "url": "https://github.com/englishtown/bootstrap.git"
@@ -28,5 +31,6 @@
     , "grunt-contrib-watch": "~0.5.1"
     , "grunt-recess": "~0.3.3"
     , "browserstack-runner": "~0.0.11"
+    , "bower": "~1"
   }
 }
