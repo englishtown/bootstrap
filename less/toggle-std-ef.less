@@ -6,7 +6,7 @@
 	min-height: @Toggle-height-base;
 	min-width: @toggle-width-default;
 	display: inline-block;
-	border: 3px solid @toggle-border;
+	border: @toggle-border-width solid @toggle-border;
 	cursor: pointer;
 	position: relative;
 	.user-select(none);
@@ -80,10 +80,22 @@
 	}
 
 	&.on .btn {
-		left:0;
-		right: auto;
+		right: @toggle-base-blank - @toggle-border-width * 2;
 		background-color: @toggle-btn-active-bg;
 	}
+
+	&.on.toggle-label.toggle-me .btn{
+		right: @toggle-medium-base-blank - @toggle-border-width * 2;
+	}
+
+	&.on.toggle-label.toggle-lg .btn{
+		right: @toggle-large-base-blank - @toggle-border-width * 2;
+	}
+
+	&.on.toggle-label.toggle-xl .btn{
+		right: @toggle-xlarge-base-blank - @toggle-border-width * 2;
+	}
+
 
 	&.on:hover .btn {
 		background-color: @toggle-btn-active-hover-bg;
