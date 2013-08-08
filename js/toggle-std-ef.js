@@ -22,7 +22,7 @@
   var toggleMousedown = 'mousedown.bs.toggle'
   var toggleMousemove = 'mousemove.bs.toggle'
   var toggleMouseup = 'mouseup.bs.toggle'
-  var toggleMouseleave='mouseleave.bs.toggle'
+  var toggleMouseleave = 'mouseleave.bs.toggle'
   var toggleMouseupDataApi = 'mouseup.bs.toggle.data-api'
 
   var toggleActiveClassName = 'on'
@@ -48,7 +48,14 @@
     'false': toggleIconOffClassName
   }
 
+  var debug = function(text) {
+    var $debug = $('.console')
+    $debug.html($debug.html() + text + '<br />')
+  }
+
   var Toggle = function(element) {
+
+
     //TODO: trigger $.fn.toggle via JAVASCRIPT if necessary in the future
     //var $el = $(element).on('click.bs.toggle', this.toggle)
     var $el = $(element)
@@ -72,8 +79,10 @@
 
 
       $this.on(toggleMousedown, function(e) {
+
         $this.addClass(toggleOnDragClassName)
         if (e.target.className.indexOf('btn') == -1) return
+        if ($this.is('.disabled, [disabled]')) return
 
         currentElRight = parseInt($btn.css('right'), 10)
         dragging = true
@@ -81,9 +90,9 @@
 
         $this.on(toggleMousemove, function(e) {
           if (e.target.className.indexOf('btn') == -1) return
+          if ($this.is('.disabled, [disabled]')) return
 
           if (dragging) {
-            console.log('mousemove')
             $this.addClass(toggleDraggingClassName)
 
             currentElRight = currentElRight + relativeX - e.pageX;
@@ -104,6 +113,7 @@
       })
 
       $this.on(toggleMouseup, function(e) {
+
         if (dragging) {
           dragging = false
           $this.off(toggleMousemove)
@@ -117,11 +127,52 @@
 
       })
 
+      $this.on('touchstart', function(e) {
+
+
+        $this.off(toggleMousedown)
+        $this.addClass(toggleOnDragClassName)
+        if (e.target.className.indexOf('btn') == -1) return
+        if ($this.is('.disabled, [disabled]')) return
+
+        currentElRight = parseInt($btn.css('right'), 10)
+        dragging = true
+        relativeX = e.originalEvent.targetTouches[0].pageX
+
+
+        $this.on('touchmove', function(e) {
+          e.preventDefault()
+
+          if (e.target.className.indexOf('btn') == -1) return
+          if ($this.is('.disabled, [disabled]')) return
+
+          if (dragging) {
+            $this.addClass(toggleDraggingClassName)
+
+            currentElRight = currentElRight + relativeX - e.originalEvent.targetTouches[0].pageX
+            if (currentElRight < 0) currentElRight = 0
+            if (currentElRight > maxMove) currentElRight = maxMove
+
+            $btn.css('right', currentElRight + 'px')
+            relativeX = e.originalEvent.targetTouches[0].pageX
+
+          }
+        })
+
+        $this.on('touchend', function(e) {
+
+          $this.off('touchend')
+          if (dragging) $this.trigger(toggleMouseup)
+        })
+
+      })
+
       setToggle($this, val)
     })
   }
 
   Toggle.prototype.toggle = function(e) {
+
     var $this = $(this)
 
     if ($this.is('.disabled, [disabled]')) return
