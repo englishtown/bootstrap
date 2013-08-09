@@ -1988,7 +1988,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 }(window.jQuery);
 
 /* ========================================================================
- * Bootstrap-ef: toggle.js v1.0
+ * Bootstrap-ef: toggle-std-ef.js v1.0
  * For standard toggle of EF project only
  * ======================================================================== */
 
@@ -2072,7 +2072,6 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
       })
 
       $this.on(toggleBlur, function(e) {
-        console.log(1)
         $this.off(toggleKeydown)
       })
 
