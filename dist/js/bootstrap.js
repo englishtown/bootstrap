@@ -2101,7 +2101,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
             var pageX = e.pageX || e.originalEvent.targetTouches[0].pageX
             $this.addClass(toggleDraggingClassName)
 
-            currentElRight = currentElRight + relativeX - pageX;
+            currentElRight = currentElRight + relativeX - pageX
 
             if (currentElRight < 0) currentElRight = 0
             if (currentElRight > maxMove) currentElRight = maxMove
@@ -2191,7 +2191,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     if ($this.is(toggleIcon)) $this.find('.btn').addClass(toggleIconClassNames[valKey]).removeClass(toggleIconClassNames[valOppositeKey])
 
-    return $this;
+    return $this
   }
 
   // STANDARD TOGGLE DATA-API
