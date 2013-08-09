@@ -7768,6 +7768,24 @@ select.form-control.input-sm {
   border-radius: 9999px;
 }
 
+.has-error .icon-glyph-error:before {
+  display: table !important;
+  background-color: #ff0054;
+  content: "\f00d";
+}
+
+.has-success .icon-glyph-success:before {
+  display: table !important;
+  background-color: #8aca01;
+  content: "\f00c";
+}
+
+.has-warning .icon-glyph-warning:before {
+  display: table !important;
+  background-color: #ff9000;
+  content: "\f12a";
+}
+
 .has-warning .help-block,
 .has-warning .control-label {
   color: #ff9000;
