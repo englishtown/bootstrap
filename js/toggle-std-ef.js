@@ -83,7 +83,6 @@
       })
 
       $this.on(toggleBlur, function(e) {
-        console.log(1)
         $this.off(toggleKeydown)
       })
 
