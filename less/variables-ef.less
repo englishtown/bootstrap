@@ -536,28 +536,38 @@
 // --------------------------------------------------
 
 
-@standard-toggle-color:					#fff;
-@standard-toggle-bg:					#fff;
-@standard-toggle-fontsize:				ceil(@font-size-base * 1.16);
-@standard-toggle-border:				@brand-default;
-@standard-toggle-hover-border:			@brand-default-hover;
-@standard-toggle-btn-bg: 				@brand-default;
-@standard-toggle-btn-hover-bg:			@brand-default-hover;
-@standard-toggle-active-border:			@brand-active;
-@standard-toggle-active-hover-border:	@brand-active-hover;
-@standard-toggle-btn-active-bg:			@brand-active;
-@standard-toggle-btn-active-hover-bg:	@brand-active-hover;
-@standard-toggle-width-base:			66px;
-@standard-toggle-height-base:			30px;
-@standard-toggle-btn-width-base:		36px;
-@standard-toggle-btn-height-base:		24px;
-@standard-toggle-padding:				12px 18px;
-@standard-toggle-label-padding:			5px 10px;
-@standard-toggle-icon-padding:			@standard-toggle-label-padding;
-@standard-toggle-btn-gap:				25px;
+@toggle-color:					#fff;
+@toggle-bg:						#fff;
+@toggle-fontsize:				@font-size-base;
+@toggle-border-width:			3px;
+@toggle-border:					@brand-default;
+@toggle-hover-border:			@brand-default-hover;
+@toggle-btn-bg: 				@brand-default;
+@toggle-btn-hover-bg:			@brand-default-hover;
+@toggle-active-border:			@brand-active;
+@toggle-active-hover-border:	@brand-active-hover;
+@toggle-btn-active-bg:			@brand-active;
+@toggle-btn-active-hover-bg:	@brand-active-hover;
+@toggle-btn-height-base:		24px;
+@Toggle-height-base:			@toggle-btn-height-base + 6;
+@toggle-padding:				5px 0;
 
+@toggle-base-blank:				30px;
+@toggle-medium-base-blank:		@toggle-base-blank + 10;
+@toggle-large-base-blank:		@toggle-base-blank + 20;
+@toggle-xlarge-base-blank:		@toggle-base-blank + 30;
 
+@toggle-btn-width-default:		40px;
+@toggle-width-default:			@toggle-btn-width-default + @toggle-base-blank;
 
+@toggle-btn-width-medium:		@toggle-btn-width-default + 60;
+@toggle-width-medium:			@toggle-btn-width-medium + @toggle-medium-base-blank;
+
+@toggle-btn-width-large:		@toggle-btn-width-default + 120;
+@toggle-width-large:			@toggle-btn-width-large + @toggle-large-base-blank;
+
+@toggle-btn-width-xlarge:		@toggle-btn-width-default + 180;
+@toggle-width-xlarge:			@toggle-btn-width-xlarge + @toggle-xlarge-base-blank;
 
 // Close
 // ------------------------

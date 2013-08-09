@@ -8456,9 +8456,11 @@ fieldset[disabled] .btn-info.active {
   border-left: 8px solid transparent;
 }
 
-.sdtoggle {
+.toggle {
+  position: relative;
   display: inline-block;
-  padding: 0 0 0 25px;
+  min-width: 70px;
+  min-height: 30px;
   cursor: pointer;
   border: 3px solid #4a4a4a;
   -webkit-user-select: none;
@@ -8468,61 +8470,93 @@ fieldset[disabled] .btn-info.active {
           user-select: none;
 }
 
-.sdtoggle.disabled,
-.sdtoggle[disabled],
-fieldset[disabled] .sdtoggle {
+.toggle.disabled,
+.toggle[disabled],
+fieldset[disabled] .toggle {
   opacity: 0.4;
   filter: alpha(opacity=40);
 }
 
-.sdtoggle:hover {
+.toggle:hover {
   border-color: #6a6a6a;
 }
 
-.sdtoggle[disabled]:hover {
+.toggle[disabled]:hover {
   border-color: #4a4a4a;
 }
 
-.sdtoggle .btn {
-  float: right;
-  padding: 12px 18px;
+.toggle .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 40px;
+  min-height: 24px;
+  padding: 5px 0;
   font-size: 14px;
   line-height: 15px;
   color: #ffffff;
   background-color: #4a4a4a;
+  outline: 0;
 }
 
-.sdtoggle:hover .btn {
+.toggle:hover .btn {
   background-color: #6a6a6a;
 }
 
-.sdtoggle:hover[disabled] .btn {
+.toggle:hover[disabled] .btn {
   background-color: #4a4a4a;
 }
 
-.sdtoggle.sdtoggle-label .btn {
-  padding: 5px 10px;
+.toggle.toggle-label.toggle-me {
+  min-width: 140px;
 }
 
-.sdtoggle.sdtoggle-icon .btn {
-  padding: 5px 10px;
+.toggle.toggle-label.toggle-me .btn {
+  min-width: 100px;
 }
 
-.sdtoggle.on {
-  padding: 0 25px 0 0;
+.toggle.toggle-label.toggle-lg {
+  min-width: 210px;
+}
+
+.toggle.toggle-label.toggle-lg .btn {
+  min-width: 160px;
+}
+
+.toggle.toggle-label.toggle-xl {
+  min-width: 280px;
+}
+
+.toggle.toggle-label.toggle-xl .btn {
+  min-width: 220px;
+}
+
+.toggle.on {
   border-color: #00c3ed;
 }
 
-.sdtoggle.on:hover {
+.toggle.on:hover {
   border-color: #00d2ff;
 }
 
-.sdtoggle.on .btn {
-  float: left;
+.toggle.on .btn {
+  right: 24px;
   background-color: #00c3ed;
 }
 
-.sdtoggle.on:hover .btn {
+.toggle.on.toggle-label.toggle-me .btn {
+  right: 34px;
+}
+
+.toggle.on.toggle-label.toggle-lg .btn {
+  right: 44px;
+}
+
+.toggle.on.toggle-label.toggle-xl .btn {
+  right: 54px;
+}
+
+.toggle.on:hover .btn {
   background-color: #00d2ff;
 }
 

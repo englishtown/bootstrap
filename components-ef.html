@@ -6,90 +6,6 @@ lead: "All additional components needed by EF, which built to provide toggles, s
 base_url: "../"
 ---
 
-  <!-- STANDARD TOGGLES
-  ================================================== -->
-  <div class="bs-docs-section">
-    <div class="page-header">
-      <h1 id="sdtoggle">Standard toggles</h1>
-    </div>
-
-    <h2 id="sdtoggle-basic">Standard toggle - Basic</h2>
-    <p>Basic toggle style. If <code>data-sdtoggle="false"</code>, we can leave blank by default.</p>
-    <div class="bs-example">
-      <span class="sdtoggle">
-        <button class="btn"></button>
-      </span>
-      <span class="sdtoggle" data-sdtoggle="true">
-        <button class="btn"></button>
-      </span>
-      <span class="sdtoggle" disabled="disabled">
-        <button class="btn"></button>
-      </span>
-    </div>
-    {% highlight html %}
-    <span class="sdtoggle">
-      <button class="btn"></button>
-    </span>
-    <span class="sdtoggle" data-sdtoggle="true">
-      <button class="btn"></button>
-    </span>
-    <span class="sdtoggle" disabled="disabled">
-      <button class="btn"></button>
-    </span>
-    {% endhighlight %}
-
-    <h2 id="sdtoggle-label">Standard toggle - Label</h2>
-    <p>Label toggle style with <code>sdtoggle-label</code> class. If <code>data-sdtoggle="false"</code>, we can leave blank by default.</p>
-    <div class="bs-example">
-      <span class="sdtoggle sdtoggle-label">
-        <button class="btn"></button>
-      </span>
-      <span class="sdtoggle sdtoggle-label" data-sdtoggle="true">
-        <button class="btn"></button>
-      </span>
-      <span class="sdtoggle sdtoggle-label" disabled="disabled">
-        <button class="btn"></button>
-      </span>
-    </div>
-    {% highlight html %}
-    <span class="sdtoggle sdtoggle-label">
-      <button class="btn"></button>
-    </span>
-    <span class="sdtoggle sdtoggle-label" data-sdtoggle="true">
-      <button class="btn"></button>
-    </span>
-    <span class="sdtoggle sdtoggle-label" disabled="disabled">
-      <button class="btn"></button>
-    </span>
-    {% endhighlight %}
-
-    <h2 id="sdtoggle-icon">Standard toggle - Icon</h2>
-    <p>Icon toggle style with <code>sdtoggle-icon</code> class. If <code>data-sdtoggle="false"</code>, we can leave blank by default.</p>
-    <div class="bs-example">
-      <span class="sdtoggle sdtoggle-icon">
-        <button class="btn"></button>
-      </span>
-      <span class="sdtoggle sdtoggle-icon" data-sdtoggle="true">
-        <button class="btn"></button>
-      </span>
-      <span class="sdtoggle sdtoggle-icon" disabled="disabled">
-        <button class="btn"></button>
-      </span>
-    </div>
-    {% highlight html %}
-    <span class="sdtoggle sdtoggle-icon">
-      <button class="btn"></button>
-    </span>
-    <span class="sdtoggle sdtoggle-icon" data-sdtoggle="true">
-      <button class="btn"></button>
-    </span>
-    <span class="sdtoggle sdtoggle-icon" disabled="disabled">
-      <button class="btn"></button>
-    </span>
-    {% endhighlight %}
-
-  </div>
-
   <!-- PRELOADERS
   ================================================== -->
   <div class="bs-docs-section">
@@ -111,9 +27,9 @@ base_url: "../"
     <div class="bs-example">
       <div class="preloader-spin preloader-sm"></div>
     </div>
-{% highlight html %}
-<div class="preloader-spin preloader-sm"></div>
-{% endhighlight %}
+    {% highlight html %}
+    <div class="preloader-spin preloader-sm"></div>
+    {% endhighlight %}
 
     <h2 id="preloaders-linear">Linear preloader</h2>
     <p>Linear preloader</p>
@@ -129,9 +45,9 @@ base_url: "../"
     <div class="bs-example">
       <div class="preloader-linear preloader-sm"></div>
     </div>
-{% highlight html %}
-<div class="preloader-linear preloader-sm"></div>
-{% endhighlight %}
+    {% highlight html %}
+    <div class="preloader-linear preloader-sm"></div>
+    {% endhighlight %}
   </div>
 
 
@@ -141,6 +57,112 @@ base_url: "../"
     <div class="page-header">
       <h1 id="toggles">TOGGLES</h1>
     </div>
+
+    <h2 id="sdtoggle-basic">Standard toggle - Basic</h2>
+    
+    <div class="bs-example">
+      <span class="toggle">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle" data-toggle="true">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle" disabled="disabled">
+        <button class="btn"></button>
+      </span>
+    </div>
+    {% highlight html %}
+    <span class="toggle">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle" data-toggle="true">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle" disabled="disabled">
+      <button class="btn"></button>
+    </span>
+    {% endhighlight %}
+
+    <h2 id="sdtoggle-label">Standard toggle - Label</h2>
+    
+    <div class="bs-example">
+      <span class="toggle toggle-label">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle toggle-label" data-toggle="true">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle toggle-label" disabled="disabled">
+        <button class="btn"></button>
+      </span>
+    </div>
+    {% highlight html %}
+    <span class="toggle toggle-label">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle toggle-label" data-toggle="true">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle toggle-label" disabled="disabled">
+      <button class="btn"></button>
+    </span>
+    {% endhighlight %}
+
+    <h2 id="sdtoggle-label">Standard toggle - Label Sizes</h2>
+    
+    <div class="bs-example">
+      <span class="toggle toggle-label">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle toggle-label toggle-me" data-label-on="ON medium" data-label-off="OFF medium">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle toggle-label toggle-lg" data-label-on="ON label large" data-label-off="OFF label large">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle toggle-label toggle-xl" data-label-on="ON label extra large" data-label-off="OFF label extra large">
+        <button class="btn"></button>
+      </span>
+    </div>
+    {% highlight html %}
+    <span class="toggle toggle-label">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle toggle-label toggle-me" data-label-on="ON medium" data-label-off="OFF medium">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle toggle-label toggle-lg" data-label-on="ON label large" data-label-off="OFF label large">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle toggle-label toggle-xl" data-label-on="ON label extra large" data-label-off="OFF label extra large">
+      <button class="btn"></button>
+    </span>
+    {% endhighlight %}
+
+    <h2 id="sdtoggle-icon">Standard toggle - Icon</h2>
+    
+    <div class="bs-example">
+      <span class="toggle toggle-icon">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle toggle-icon" data-toggle="true">
+        <button class="btn"></button>
+      </span>
+      <span class="toggle toggle-icon" disabled="disabled">
+        <button class="btn"></button>
+      </span>
+    </div>
+    {% highlight html %}
+    <span class="toggle toggle-icon">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle toggle-icon" data-toggle="true">
+      <button class="btn"></button>
+    </span>
+    <span class="toggle toggle-icon" disabled="disabled">
+      <button class="btn"></button>
+    </span>
+    {% endhighlight %}
 
     <h2 id="toggles-btn-group">Button groups</h2>
     <p>Toggles based on button group</p>
@@ -152,13 +174,13 @@ base_url: "../"
         <a href="#" class="btn btn-default">Right</a>
       </div>
     </div>
-{% highlight html %}
-<div class="toggle-btn-group toggle-btn-group-text">
-  <a href="#" class="btn btn-default">Left</a>
-  <a href="#" class="btn btn-default active">Middle</a>
-  <a href="#" class="btn btn-default">Right</a>
-</div>
-{% endhighlight %}
+    {% highlight html %}
+    <div class="toggle-btn-group toggle-btn-group-text">
+      <a href="#" class="btn btn-default">Left</a>
+      <a href="#" class="btn btn-default active">Middle</a>
+      <a href="#" class="btn btn-default">Right</a>
+    </div>
+    {% endhighlight %}
     <h3 id="toggle-btn-group-icons">Icons</h3>
     <div class="bs-example">
       <div class="toggle-btn-group toggle-btn-group-icons">
@@ -166,26 +188,26 @@ base_url: "../"
         <a href="#" class="btn btn-default active"><i class="icon-">&#xf088;</i></a>
       </div>
     </div>
-{% highlight html %}
-<div class="toggle-btn-group toggle-btn-group-icons">
-  <a href="#" class="btn btn-default"><i class="icon-">&#xf087;</i></a>
-  <a href="#" class="btn btn-default active"><i class="icon-">&#xf088;</i></a>
-</div>
-{% endhighlight %}
+    {% highlight html %}
+    <div class="toggle-btn-group toggle-btn-group-icons">
+      <a href="#" class="btn btn-default"><i class="icon-">&#xf087;</i></a>
+      <a href="#" class="btn btn-default active"><i class="icon-">&#xf088;</i></a>
+    </div>
+    {% endhighlight %}
     <h3 id="toggle-btn-group-multiple-icons">Multiple icons</h3>
     <div class="bs-example">
       <div class="toggle-btn-group toggle-btn-group-icons">
+        <a href="#" class="btn btn-default active"><i class="icon-">&#xf036;</i></a>
+        <a href="#" class="btn btn-default"><i class="icon-">&#xf037;</i></a>
+        <a href="#" class="btn btn-default"><i class="icon-">&#xf038;</i></a>
+      </div>
+    </div>
+    {% highlight html %}
+    <div class="toggle-btn-group toggle-btn-group-icons">
       <a href="#" class="btn btn-default active"><i class="icon-">&#xf036;</i></a>
       <a href="#" class="btn btn-default"><i class="icon-">&#xf037;</i></a>
       <a href="#" class="btn btn-default"><i class="icon-">&#xf038;</i></a>
-      </div>
     </div>
-{% highlight html %}
-<div class="toggle-btn-group toggle-btn-group-icons">
-  <a href="#" class="btn btn-default active"><i class="icon-">&#xf036;</i></a>
-  <a href="#" class="btn btn-default"><i class="icon-">&#xf037;</i></a>
-  <a href="#" class="btn btn-default"><i class="icon-">&#xf038;</i></a>
-</div>
-{% endhighlight %}
+    {% endhighlight %}
 
   </div>
