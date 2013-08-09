@@ -20,6 +20,8 @@
   var toggleCallbackOff = 'off.bs.toggle'
 
   var toggleFocus = 'focus.bs.toggle'
+  var toggleBlur = 'blur.bs.toggle'
+  var toggleKeydown = 'keydown.bs.toggle'
   var toggleMousedown = 'mousedown.bs.toggle'
   var toggleMousemove = 'mousemove.bs.toggle'
   var toggleMouseup = 'mouseup.bs.toggle'
@@ -38,7 +40,7 @@
 
   var toggleActiveClassName = 'on'
   var toggleDraggingClassName = 'toggle-dragging'
-  var toggleOnDragClassName = 'toggle-ondrag'
+  var toggleTargetClassName = 'toggle-target'
 
   var toggleLabel = '.toggle-label'
   //Default label text
@@ -69,10 +71,20 @@
 
       $this.on(toggleFocus, function(e) {
         if ($this.is('.disabled, [disabled]')) return
-
         // TODO: make clear that bind which key to trigger toggle when press 'tab' key and focus on toggle
         //       Current are: Enter & Space
-        if (/(13|32)/.test(e.keyCode)) $this.trigger(toggleMouseup)
+        $this.on(toggleKeydown, function(e) {
+          if (/(13|32)/.test(e.keyCode)) {
+            e.preventDefault()
+            $this.addClass(toggleTargetClassName)
+            $this.trigger(toggleMouseup)
+          }
+        })
+      })
+
+      $this.on(toggleBlur, function(e) {
+        console.log(1)
+        $this.off(toggleKeydown)
       })
 
       var dragging = false
@@ -81,8 +93,8 @@
 
 
       $this.on(downEvent, function(e) {
-
-        $this.addClass(toggleOnDragClassName)
+        $this.addClass(toggleTargetClassName)
+        
         if (e.target.className.indexOf('btn') == -1) return
         if ($this.is('.disabled, [disabled]')) return
 
@@ -148,8 +160,8 @@
       return
     }
 
-    if ($this.hasClass(toggleOnDragClassName)) {
-      $this.removeClass(toggleOnDragClassName)
+    if ($this.hasClass(toggleTargetClassName)) {
+      $this.removeClass(toggleTargetClassName)
     } else {
       return
     }
