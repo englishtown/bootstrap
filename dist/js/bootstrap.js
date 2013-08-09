@@ -2007,7 +2007,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   // Events
   var toggleCallbackOn = 'on.bs.toggle'
   var toggleCallbackOff = 'off.bs.toggle'
-  
+
   var toggleFocus = 'focus.bs.toggle'
   var toggleMousedown = 'mousedown.bs.toggle'
   var toggleMousemove = 'mousemove.bs.toggle'
@@ -2048,16 +2048,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     'false': toggleIconOffClassName
   }
 
-  var debug = function(text) {
-    var $debug = $('.console')
-    $debug.html($debug.html() + text + '<br />')
-  }
-
   var Toggle = function(element) {
-
-
-    //TODO: trigger $.fn.toggle via JAVASCRIPT if necessary in the future
-    //var $el = $(element).on('click.bs.toggle', this.toggle)
     var $el = $(element)
     $el.each(function() {
       var $this = $(this)

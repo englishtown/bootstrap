@@ -7768,24 +7768,6 @@ select.form-control.input-sm {
   border-radius: 9999px;
 }
 
-.has-error .icon-glyph-error:before {
-  display: table !important;
-  background-color: #ff0054;
-  content: "\f00d";
-}
-
-.has-success .icon-glyph-success:before {
-  display: table !important;
-  background-color: #8aca01;
-  content: "\f00c";
-}
-
-.has-warning .icon-glyph-warning:before {
-  display: table !important;
-  background-color: #ff9000;
-  content: "\f12a";
-}
-
 .has-warning .help-block,
 .has-warning .control-label {
   color: #ff9000;
@@ -8459,8 +8441,8 @@ fieldset[disabled] .btn-info.active {
 .toggle {
   position: relative;
   display: inline-block;
-  min-width: 70px;
-  min-height: 30px;
+  width: 70px;
+  height: 30px;
   cursor: pointer;
   border: 3px solid #4a4a4a;
   -webkit-user-select: none;
@@ -8489,9 +8471,9 @@ fieldset[disabled] .toggle {
   position: absolute;
   top: 0;
   right: 0;
-  min-width: 40px;
-  min-height: 24px;
-  padding: 5px 0;
+  width: 40px;
+  height: 24px;
+  padding: 0;
   font-size: 14px;
   line-height: 15px;
   color: #ffffff;
@@ -8508,27 +8490,27 @@ fieldset[disabled] .toggle {
 }
 
 .toggle.toggle-label.toggle-me {
-  min-width: 140px;
+  width: 140px;
 }
 
 .toggle.toggle-label.toggle-me .btn {
-  min-width: 100px;
+  width: 100px;
 }
 
 .toggle.toggle-label.toggle-lg {
-  min-width: 210px;
+  width: 210px;
 }
 
 .toggle.toggle-label.toggle-lg .btn {
-  min-width: 160px;
+  width: 160px;
 }
 
 .toggle.toggle-label.toggle-xl {
-  min-width: 280px;
+  width: 280px;
 }
 
 .toggle.toggle-label.toggle-xl .btn {
-  min-width: 220px;
+  width: 220px;
 }
 
 .toggle.on {
