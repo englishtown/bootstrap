@@ -1998,9 +1998,10 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   // STANDARD TOGGLE CLASS DEFINITION
   // ====================
 
-  var toggleBase = 'toggle'
-  var toggleClass = '.' + toggleBase
-  var toggleData = 'data-' + toggleBase
+  var toggleElement = '.toggle'
+  var dataToggle = 'stdtoggle'
+  var dataToggleContainer = 'stdtoggle-container'
+  var dataActive = 'active'
   var dataLabelOn = 'label-on'
   var dataLabelOff = 'label-off'
 
@@ -2008,203 +2009,178 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   var toggleCallbackOn = 'on.bs.toggle'
   var toggleCallbackOff = 'off.bs.toggle'
 
-  var toggleFocus = 'focus.bs.toggle'
-  var toggleBlur = 'blur.bs.toggle'
-  var toggleKeydown = 'keydown.bs.toggle'
-  var toggleMousedown = 'mousedown.bs.toggle'
+  var toggleMousedown = 'mousedown.bs.toggle.data-api'
+  var toggleMouseup = 'mouseup.bs.toggle.data-api'
+  var toggleKeydown = 'keydown.bs.toggle.data-api'
   var toggleMousemove = 'mousemove.bs.toggle'
-  var toggleMouseup = 'mouseup.bs.toggle'
   var toggleMouseleave = 'mouseleave.bs.toggle'
-  var toggleMouseupDataApi = 'mouseup.bs.toggle.data-api'
 
-  var toggleTouchstart = 'touchstart.bs.toggle'
+  var toggleTouchstart = 'touchstart.bs.toggle.data-api'
   var toggleTouchmove = 'touchmove.bs.toggle'
   var toggleTouchend = 'touchend.bs.toggle'
 
   var touchSupport = ('ontouchstart' in document.documentElement)
 
-  var downEvent = (touchSupport) ? toggleTouchstart : toggleMousedown
-  var moveEvent = (touchSupport) ? toggleTouchmove : toggleMousemove
-  var endEvent = (touchSupport) ? toggleTouchend : toggleMouseleave
+  var toggleDown = (touchSupport) ? toggleTouchstart : toggleMousedown
+  var toggleMove = (touchSupport) ? toggleTouchmove : toggleMousemove
+  var toggleEnd = (touchSupport) ? toggleTouchend : toggleMouseleave
 
-  var toggleActiveClassName = 'on'
-  var toggleDraggingClassName = 'toggle-dragging'
-  var toggleTargetClassName = 'toggle-target'
-
-  var toggleLabel = '.toggle-label'
+  var toggleOnClass = 'on'
+  var toggleLabelClass = 'toggle-label'
   //Default label text
-  var dataLabelOnTextDefault = 'ON'
-  var dataLabelOffTextDefault = 'OFF'
+  var labelOnText = 'ON'
+  var labelOffText = 'OFF'
 
-  var toggleIcon = '.toggle-icon'
-  var toggleIconOnClassName = 'icon-ok'
-  var toggleIconOffClassName = 'icon-remove'
+  var toggleIconClass = 'toggle-icon'
+  var toggleIconOnClass = 'icon-ok'
+  var toggleIconOffClass = 'icon-remove'
 
-  var toggleCallbacks = {
-    'true': toggleCallbackOn,
-    'false': toggleCallbackOff
-  }
+  var disableAttr = '.disabled, [disabled]'
 
-  var toggleIconClassNames = {
-    'true': toggleIconOnClassName,
-    'false': toggleIconOffClassName
-  }
+  var dragging, dragged
 
   var Toggle = function(element) {
     var $el = $(element)
-    $el.each(function() {
-      var $this = $(this)
-      var $btn = $this.find('.btn')
-      var data = $this.data(toggleBase)
-      var val = data === true
-
-      $this.on(toggleFocus, function(e) {
-        if ($this.is('.disabled, [disabled]')) return
-        // TODO: make clear that bind which key to trigger toggle when press 'tab' key and focus on toggle
-        //       Current are: Enter & Space
-        $this.on(toggleKeydown, function(e) {
-          if (/(13|32)/.test(e.keyCode)) {
-            e.preventDefault()
-            $this.addClass(toggleTargetClassName)
-            $this.trigger(toggleMouseup)
-          }
-        })
-      })
-
-      $this.on(toggleBlur, function(e) {
-        $this.off(toggleKeydown)
-      })
-
-      var dragging = false
-      var relativeX, currentElRight
-      var maxMove = $this.width() - $btn.width()
-
-
-      $this.on(downEvent, function(e) {
-        $this.addClass(toggleTargetClassName)
-        
-        if (e.target.className.indexOf('btn') == -1) return
-        if ($this.is('.disabled, [disabled]')) return
-
-        currentElRight = parseInt($btn.css('right'), 10)
-        dragging = true
-        relativeX = e.pageX || e.originalEvent.targetTouches[0].pageX
-
-        $this.on(moveEvent, function(e) {
-
-          if (e.target.className.indexOf('btn') == -1) return
-          if ($this.is('.disabled, [disabled]')) return
-
-          e.preventDefault()
-
-          if (dragging) {
-            var pageX = e.pageX || e.originalEvent.targetTouches[0].pageX
-            $this.addClass(toggleDraggingClassName)
-
-            currentElRight = currentElRight + relativeX - pageX
-
-            if (currentElRight < 0) currentElRight = 0
-            if (currentElRight > maxMove) currentElRight = maxMove
-
-            $btn.css('right', currentElRight + 'px')
-            relativeX = pageX
-
-          }
-        })
-
-        $this.on(endEvent, function(e) {
-          $this.off(endEvent)
-          if (dragging) $this.trigger(toggleMouseup)
-        })
-      })
-
-      $this.on(toggleMouseup, function(e) {
-
-        if (dragging) {
-          dragging = false
-          $this.off(toggleMousemove)
-          $btn.css('right', '')
-        }
-
-        if ($this.hasClass(toggleDraggingClassName)) {
-          var val = (currentElRight > maxMove / 2)
-          setToggle($this, val)
-        }
-
-      })
-
-      setToggle($this, val)
-    })
+    $el.val(Boolean($el.data(dataToggle)))
+    this.toggle.call($el, $el.val())
   }
 
-  Toggle.prototype.toggle = function(e) {
-
+  Toggle.prototype.toggle = function(optionBool) {
     var $this = $(this)
-
-    if ($this.is('.disabled, [disabled]')) return
-
-    if ($this.hasClass(toggleDraggingClassName)) {
-      $this.removeClass(toggleDraggingClassName)
-      return
+    var $btn = $this.find('.btn')
+    if (optionBool === undefined) {
+      optionBool = !$this.val()
     }
 
-    if ($this.hasClass(toggleTargetClassName)) {
-      $this.removeClass(toggleTargetClassName)
-    } else {
-      return
-    }
+    $this.toggleClass('on', optionBool)
 
-    e.stopPropagation()
-
-    var val = !$this.data(toggleBase)
-    var valKey = val.toString()
-
-    setToggle($this, val).trigger(toggleCallbacks[valKey])
-
-  }
-
-  var setToggle = function($this, val) {
-    var valKey = val.toString()
-    var valOppositeKey = (!val).toString()
-
-    $this
-      .attr(toggleData, val)
-      .data(toggleBase, val)
-
-    if (val) {
-      $this.addClass(toggleActiveClassName)
-    } else {
-      $this.removeClass(toggleActiveClassName)
-    }
-
-    if ($this.is(toggleLabel)) {
+    if ($this.hasClass(toggleLabelClass)) {
       var dataLabelOnText = $this.data(dataLabelOn)
       var dataLabelOffText = $this.data(dataLabelOff)
 
-      var toggleLabelTexts = {
-        'true': (dataLabelOnText) ? dataLabelOnText : dataLabelOnTextDefault,
-        'false': (dataLabelOffText) ? dataLabelOffText : dataLabelOffTextDefault
-      }
+      if (!dataLabelOnText) dataLabelOnText = labelOnText
+      if (!dataLabelOffText) dataLabelOffText = labelOffText
 
-      $this.find('.btn').text(toggleLabelTexts[valKey])
+      $btn.text((optionBool) ? dataLabelOnText : dataLabelOffText)
     }
 
-    if ($this.is(toggleIcon)) $this.find('.btn').addClass(toggleIconClassNames[valKey]).removeClass(toggleIconClassNames[valOppositeKey])
+    if ($this.hasClass(toggleIconClass)) {
+      $btn.toggleClass(function() {
+        return (optionBool) ? toggleIconOnClass : toggleIconOffClass
+      })
+    }
 
-    return $this
+    $this.trigger((optionBool) ? toggleCallbackOn : toggleCallbackOff)
+    $this.val(optionBool)
   }
 
-  // STANDARD TOGGLE DATA-API
-  // ===============
+  var downEvent = function(e) {
+    var $this = $(this)
+    var $btn = $this.find('.btn')
+    $this.data(dataActive, true)
+
+    if (e.target.className.indexOf('btn') == -1 || $this.is(disableAttr)) return
+
+    var relativeX = e.pageX || e.originalEvent.targetTouches[0].pageX
+    var currentElRight = parseInt($btn.css('right'), 10)
+    var maxMove = $this.width() - $btn.width()
+    dragging = true
+
+    $this.on(toggleMove, function(e) {
+      e.preventDefault()
+      if (!dragged) dragged = true
+      if (dragging) {
+        var pageX = e.pageX || e.originalEvent.targetTouches[0].pageX
+
+        currentElRight = currentElRight + relativeX - pageX
+
+        if (currentElRight < 0) currentElRight = 0
+        if (currentElRight > maxMove) currentElRight = maxMove
+
+        $btn.css('right', currentElRight + 'px')
+        relativeX = pageX
+
+        $this.val(currentElRight > maxMove / 2)
+      }
+    })
+
+    $this.on(toggleEnd, function(e) {
+      $this.off(toggleEnd)
+      $this.trigger(toggleMouseup)
+    })
+
+  }
+
+  var mouseupEvent = function(e) {
+    var $this = $(this)
+    var $btn = $this.find('.btn')
+    if ($this.is(disableAttr) || !$this.data(dataActive)) return
+    dragging = false
+    $this.off(toggleMove)
+    if (dragged) {
+      dragged = false
+      $btn.css('right', '')
+      $this.stdtoggle($this.val())
+    } else {
+      $this.stdtoggle()
+    }
+
+    $this.data(dataActive, false)
+
+  }
+
+  var keydownEvent = function(e) {
+    var $this = $(this)
+    if ($this.not(':focus')) return
+    if (/(13|32)/.test(e.keyCode)) {
+      e.preventDefault()
+      $this.data(dataActive, true)
+      $this.trigger(toggleMouseup)
+    }
+
+  }
+
+  // STANDARD TOGGLE PLUGIN DEFINITION
+  // ==========================
+
+  var old = $.fn.stdtoggle
+
+  $.fn.stdtoggle = function(option) {
+    return this.each(function() {
+      var $this = $(this)
+      var data = $this.data(dataToggleContainer)
+
+      if (!data) {
+        $this.data(dataToggleContainer, (data = new Toggle(this)))
+      } else {
+        data.toggle.call(this, option)
+      }
+
+    })
+  }
+
+  $.fn.stdtoggle.Constructor = Toggle
+
+
+  // STANDARD TOGGLE NO CONFLICT
+  // ====================
+
+  $.fn.stdtoggle.noConflict = function() {
+    $.fn.stdtoggle = old
+    return this
+  }
 
   $(document)
-    .on(toggleMouseupDataApi, toggleClass, Toggle.prototype.toggle)
+    .on(toggleDown, toggleElement, downEvent)
+    .on(toggleMouseup, toggleElement, mouseupEvent)
+    .on(toggleKeydown, toggleElement, keydownEvent)
 
   $(window).on('load', function() {
-    var toggleEntity = new Toggle(toggleClass)
+    $(toggleElement).stdtoggle()
   })
 
 }(window.jQuery);
+
 /* ========================================================================
 * Bootstrap-ef: sdtoogle.js v1.0
 * For button group toggle of EF project only
