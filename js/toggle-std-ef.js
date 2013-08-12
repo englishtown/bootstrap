@@ -76,8 +76,10 @@
     }
 
     if ($this.hasClass(toggleIconClass)) {
-      $btn.toggleClass(function() {
+      $btn.addClass(function() {
         return (optionBool) ? toggleIconOnClass : toggleIconOffClass
+      }).removeClass(function() {
+        return (optionBool) ? toggleIconOffClass : toggleIconOnClass
       })
     }
 
