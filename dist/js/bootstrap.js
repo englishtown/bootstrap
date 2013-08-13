@@ -2069,8 +2069,9 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
       if (typeof($this.val()) == 'string') {
         var tempText = (dataLabelOnText.length > dataLabelOffText.length) ? dataLabelOnText : dataLabelOffText
         $btn.css('visibility', 'hidden').text(tempText)
-        if ($btn.width() > parseInt($btn.css('min-width'), 10)) {
-          $btn.css('min-width', $btn.width() + 20 + 'px')
+        var realWidth = $btn.width() + parseInt($btn.css('padding-left'),10) + parseInt($btn.css('padding-right'),10)
+        if (realWidth > parseInt($btn.css('min-width'), 10)) {
+          $btn.css('min-width', realWidth + 'px')
         }
         $btn.css('visibility', '')
       }
