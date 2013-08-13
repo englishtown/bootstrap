@@ -8457,10 +8457,8 @@ fieldset[disabled] .btn-info.active {
 }
 
 .toggle {
-  position: relative;
   display: inline-block;
-  width: 70px;
-  height: 30px;
+  padding-right: 24px;
   cursor: pointer;
   border: 3px solid #4a4a4a;
   -webkit-user-select: none;
@@ -8486,14 +8484,12 @@ fieldset[disabled] .toggle {
 }
 
 .toggle .btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
+  position: relative;
+  left: 24px;
   height: 24px;
-  padding: 0;
+  min-width: 40px;
+  padding: 0 8px;
   font-size: 14px;
-  line-height: 15px;
   color: #ffffff;
   background-color: #4a4a4a;
   outline: 0;
@@ -8507,30 +8503,6 @@ fieldset[disabled] .toggle {
   background-color: #4a4a4a;
 }
 
-.toggle.toggle-label.toggle-me {
-  width: 140px;
-}
-
-.toggle.toggle-label.toggle-me .btn {
-  width: 100px;
-}
-
-.toggle.toggle-label.toggle-lg {
-  width: 210px;
-}
-
-.toggle.toggle-label.toggle-lg .btn {
-  width: 160px;
-}
-
-.toggle.toggle-label.toggle-xl {
-  width: 280px;
-}
-
-.toggle.toggle-label.toggle-xl .btn {
-  width: 220px;
-}
-
 .toggle.on {
   border-color: #00c3ed;
 }
@@ -8540,20 +8512,8 @@ fieldset[disabled] .toggle {
 }
 
 .toggle.on .btn {
-  right: 24px;
+  left: 0;
   background-color: #00c3ed;
-}
-
-.toggle.on.toggle-label.toggle-me .btn {
-  right: 34px;
-}
-
-.toggle.on.toggle-label.toggle-lg .btn {
-  right: 44px;
-}
-
-.toggle.on.toggle-label.toggle-xl .btn {
-  right: 54px;
 }
 
 .toggle.on:hover .btn {

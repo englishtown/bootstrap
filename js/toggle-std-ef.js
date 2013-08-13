@@ -52,12 +52,12 @@
 
   var Toggle = function(element) {
     var $el = $(element)
-    $el.val(Boolean($el.data(dataToggle)))
-    this.toggle.call($el, $el.val())
+    this.element = $el
+    this.toggle(Boolean($el.data(dataToggle)))
   }
 
   Toggle.prototype.toggle = function(optionBool) {
-    var $this = $(this)
+    var $this = this.element
     var $btn = $this.find('.btn')
     if (optionBool === undefined) {
       optionBool = !$this.val()
@@ -71,6 +71,15 @@
 
       if (!dataLabelOnText) dataLabelOnText = labelOnText
       if (!dataLabelOffText) dataLabelOffText = labelOffText
+
+      if (typeof($this.val()) == 'string') {
+        var tempText = (dataLabelOnText.length > dataLabelOffText.length) ? dataLabelOnText : dataLabelOffText
+        $btn.css('visibility', 'hidden').text(tempText)
+        if ($btn.width() > parseInt($btn.css('min-width'), 10)) {
+          $btn.css('min-width', $btn.width() + 20 + 'px')
+        }
+        $btn.css('visibility', '')
+      }
 
       $btn.text((optionBool) ? dataLabelOnText : dataLabelOffText)
     }
@@ -95,8 +104,8 @@
     if (e.target.className.indexOf('btn') == -1 || $this.is(disableAttr)) return
 
     var relativeX = e.pageX || e.originalEvent.targetTouches[0].pageX
-    var currentElRight = parseInt($btn.css('right'), 10)
-    var maxMove = $this.width() - $btn.width()
+    var currentElRight = parseInt($btn.css('left'), 10)
+    var maxMove = 24
     dragging = true
 
     $this.on(toggleMove, function(e) {
@@ -105,15 +114,15 @@
       if (dragging) {
         var pageX = e.pageX || e.originalEvent.targetTouches[0].pageX
 
-        currentElRight = currentElRight + relativeX - pageX
+        currentElRight = currentElRight + pageX - relativeX
 
         if (currentElRight < 0) currentElRight = 0
         if (currentElRight > maxMove) currentElRight = maxMove
 
-        $btn.css('right', currentElRight + 'px')
+        $btn.css('left', currentElRight + 'px')
         relativeX = pageX
 
-        $this.val(currentElRight > maxMove / 2)
+        $this.val(currentElRight < maxMove / 2)
       }
     })
 
@@ -132,7 +141,7 @@
     $this.off(toggleMove)
     if (dragged) {
       dragged = false
-      $btn.css('right', '')
+      $btn.css('left', '')
       $this.stdtoggle($this.val())
     } else {
       $this.stdtoggle()
@@ -166,7 +175,7 @@
       if (!data) {
         $this.data(dataToggleContainer, (data = new Toggle(this)))
       } else {
-        data.toggle.call(this, option)
+        data.toggle(option)
       }
 
     })

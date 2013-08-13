@@ -108,33 +108,20 @@ base_url: "../"
     </span>
     {% endhighlight %}
 
-    <h2 id="sdtoggle-label">Standard toggle - Label Sizes</h2>
-
+    <p>Auto expanding for different text's width</p>
     <div class="bs-example">
-      <span class="toggle toggle-label">
+      <span class="toggle toggle-label" data-label-on="ON button">
         <button class="btn"></button>
       </span>
-      <span class="toggle toggle-label toggle-me" data-label-on="ON medium" data-label-off="OFF medium">
-        <button class="btn"></button>
-      </span>
-      <span class="toggle toggle-label toggle-lg" data-label-on="ON label large" data-label-off="OFF label large">
-        <button class="btn"></button>
-      </span>
-      <span class="toggle toggle-label toggle-xl" data-label-on="ON label extra large" data-label-off="OFF label extra large">
+      <span class="toggle toggle-label" data-label-off="This's OFF button">
         <button class="btn"></button>
       </span>
     </div>
     {% highlight html %}
-    <span class="toggle toggle-label">
+    <span class="toggle toggle-label" data-label-on="ON button">
       <button class="btn"></button>
     </span>
-    <span class="toggle toggle-label toggle-me" data-label-on="ON medium" data-label-off="OFF medium">
-      <button class="btn"></button>
-    </span>
-    <span class="toggle toggle-label toggle-lg" data-label-on="ON label large" data-label-off="OFF label large">
-      <button class="btn"></button>
-    </span>
-    <span class="toggle toggle-label toggle-xl" data-label-on="ON label extra large" data-label-off="OFF label extra large">
+    <span class="toggle toggle-label" data-label-off="This's OFF button">
       <button class="btn"></button>
     </span>
     {% endhighlight %}

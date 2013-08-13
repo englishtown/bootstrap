@@ -3,102 +3,61 @@
 // --------------------------------------------------
 
 .toggle {
-	height: @Toggle-height-base;
-	width: @toggle-width-default;
-	display: inline-block;
-	border: @toggle-border-width solid @toggle-border;
-	cursor: pointer;
-	position: relative;
-	.user-select(none);
+  display: inline-block;
+  border: @toggle-border-width solid @toggle-border;
+  cursor: pointer;
+  padding-right: @toggle-base-blank-width;
+  .user-select(none);
 
-	&.disabled,
-	&[disabled],
-	fieldset[disabled] & {
-		.opacity(@brand-variant-disable-computed);
-	}
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    .opacity(@brand-variant-disable-computed);
+  }
 
-	&:hover {
-		border-color: @toggle-hover-border;
-	}
-	
-	&[disabled]:hover {
-		border-color: @toggle-border;
-	}
+  &:hover {
+    border-color: @toggle-hover-border;
+  }
 
-	.btn {
-		width: @toggle-btn-width-default;
-		height: @toggle-btn-height-base;
-		padding: @toggle-padding;
-		color: @toggle-color;
-		line-height: 15px;
-		font-size: @toggle-fontsize;
-		background-color: @toggle-btn-bg;
-		outline: 0;
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
+  &[disabled]:hover {
+    border-color: @toggle-border;
+  }
 
-	&:hover .btn{
-		background-color: @toggle-btn-hover-bg;
-	}
+  .btn {
+    min-width: @toggle-btn-minwidth;
+    height: @toggle-btn-height;
+    padding: @toggle-btn-padding;
+    color: @toggle-color;
+    font-size: @toggle-fontsize;
+    background-color: @toggle-btn-bg;
+    outline: 0;
+    position: relative;
+    left: @toggle-base-blank-width;
+  }
 
-	&:hover[disabled] .btn{
-		background-color: @toggle-btn-bg;
-	}
+  &:hover .btn{
+    background-color: @toggle-btn-hover-bg;
+  }
 
-	&.toggle-label.toggle-me{
-		width: @toggle-width-medium;
-	}
+  &:hover[disabled] .btn{
+    background-color: @toggle-btn-bg;
+  }
 
-	&.toggle-label.toggle-me .btn{
-		width: @toggle-btn-width-medium;
-	}
+  &.on {
+    border-color: @toggle-active-border;
+  }
 
-	&.toggle-label.toggle-lg{
-		width: @toggle-width-large;
-	}
+  &.on:hover {
+    border-color: @toggle-active-hover-border;
+  }
 
-	&.toggle-label.toggle-lg .btn{
-		width: @toggle-btn-width-large;
-	}
+  &.on .btn {
+    left: 0;
+    background-color: @toggle-btn-active-bg;
+  }
 
-	&.toggle-label.toggle-xl{
-		width: @toggle-width-xlarge;
-	}
-
-	&.toggle-label.toggle-xl .btn{
-		width: @toggle-btn-width-xlarge;
-	}
-
-	&.on {
-		border-color: @toggle-active-border;
-	}
-
-	&.on:hover {
-		border-color: @toggle-active-hover-border;
-	}
-
-	&.on .btn {
-		right: @toggle-base-blank - @toggle-border-width * 2;
-		background-color: @toggle-btn-active-bg;
-	}
-
-	&.on.toggle-label.toggle-me .btn{
-		right: @toggle-medium-base-blank - @toggle-border-width * 2;
-	}
-
-	&.on.toggle-label.toggle-lg .btn{
-		right: @toggle-large-base-blank - @toggle-border-width * 2;
-	}
-
-	&.on.toggle-label.toggle-xl .btn{
-		right: @toggle-xlarge-base-blank - @toggle-border-width * 2;
-	}
-
-
-	&.on:hover .btn {
-		background-color: @toggle-btn-active-hover-bg;
-	}
+  &.on:hover .btn {
+    background-color: @toggle-btn-active-hover-bg;
+  }
 
 }
