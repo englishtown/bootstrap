@@ -14,7 +14,7 @@
     <!-- Page content of course! -->
     {{ content }}
 
-    <div class="container" role="contentinfo">
+    <footer class="container" role="contentinfo">
       <ul class="bs-masthead-links">
         <li>
           <a href="{{ site.repo }}" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub project</a>
@@ -29,7 +29,7 @@
           <a href="{{ site.expo }}" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Expo']);">Bootstrap Expo</a>
         </li>
       </ul>
-    </div>
+    </footer>
 
     <!-- JS and analytics only. -->
     {% include footer.html %}
