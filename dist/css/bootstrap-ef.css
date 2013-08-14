@@ -8899,6 +8899,8 @@ fieldset[disabled] .btn-info.active {
   padding-right: 24px;
   cursor: pointer;
   border: 3px solid #4a4a4a;
+  -webkit-transition: border-color ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -8931,6 +8933,8 @@ fieldset[disabled] .toggle {
   color: #ffffff;
   background-color: #4a4a4a;
   outline: 0;
+  -webkit-transition: background-color ease-in-out 0.15s;
+          transition: background-color ease-in-out 0.15s;
 }
 
 .toggle:hover .btn {

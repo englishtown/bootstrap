@@ -7,6 +7,7 @@
   border: @toggle-border-width solid @toggle-border;
   cursor: pointer;
   padding-right: @toggle-base-blank-width;
+  .transition(~"border-color ease-in-out .15s");
   .user-select(none);
 
   &.disabled,
@@ -33,6 +34,7 @@
     outline: 0;
     position: relative;
     left: @toggle-base-blank-width;
+    .transition(~"background-color ease-in-out .15s");
   }
 
   &:hover .btn{
