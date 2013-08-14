@@ -8894,6 +8894,74 @@ fieldset[disabled] .btn-info.active {
   border-left: 8px solid transparent;
 }
 
+.toggle {
+  display: inline-block;
+  padding-right: 24px;
+  cursor: pointer;
+  border: 3px solid #4a4a4a;
+  -webkit-transition: border-color ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.toggle.disabled,
+.toggle[disabled],
+fieldset[disabled] .toggle {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.toggle:hover {
+  border-color: #6a6a6a;
+}
+
+.toggle[disabled]:hover {
+  border-color: #4a4a4a;
+}
+
+.toggle .btn {
+  position: relative;
+  left: 24px;
+  height: 24px;
+  min-width: 40px;
+  padding: 0 8px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #4a4a4a;
+  outline: 0;
+  -webkit-transition: background-color ease-in-out 0.15s;
+          transition: background-color ease-in-out 0.15s;
+}
+
+.toggle:hover .btn {
+  background-color: #6a6a6a;
+}
+
+.toggle:hover[disabled] .btn {
+  background-color: #4a4a4a;
+}
+
+.toggle.on {
+  border-color: #00c3ed;
+}
+
+.toggle.on:hover {
+  border-color: #00d2ff;
+}
+
+.toggle.on .btn {
+  left: 0;
+  background-color: #00c3ed;
+}
+
+.toggle.on:hover .btn {
+  background-color: #00d2ff;
+}
+
 .nav-tabs > li > a {
   padding-top: 9px;
   border-bottom-width: 0;

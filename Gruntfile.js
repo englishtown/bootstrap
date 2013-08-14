@@ -63,6 +63,7 @@ module.exports = function(grunt) {
           'js/scrollspy.js',
           'js/tab.js',
           'js/affix.js',
+          'js/toggle-std-ef.js',
           'js/toggle-btn-group-ef.js'
         ],
         dest: 'dist/js/bootstrap.js'
