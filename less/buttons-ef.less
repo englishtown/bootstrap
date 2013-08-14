@@ -10,6 +10,7 @@
 .btn {
   border-width: 0;
   font-weight: 400;
+  line-height: @line-height-computed;
 
   &:active,
   &.active {
@@ -55,12 +56,8 @@
 .btn-xl {
   padding: @padding-xlarge-vertical @padding-xlarge-horizontal;
   font-size: @font-size-xlarge;
-  line-height: @line-height-computed;
   border-radius: @border-radius-xlarge;
 }
-.btn-lg {
-  line-height: @line-height-computed;
-}
-.btn-sm {
-  line-height: @line-height-computed;
+.btn-xs {
+  padding: 0 5px;
 }

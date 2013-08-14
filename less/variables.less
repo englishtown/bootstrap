@@ -209,6 +209,7 @@
 @screen-large-desktop:       @screen-large;
 
 // So media queries don't overlap when required, provide a maximum
+@screen-phone-max:           (@screen-small - 1);
 @screen-small-max:           (@screen-medium - 1);
 @screen-tablet-max:          (@screen-desktop - 1);
 @screen-desktop-max:         (@screen-large-desktop - 1);
@@ -230,9 +231,10 @@
 
 // Basics of a navbar
 @navbar-height:                    50px;
-@navbar-color:                     #777;
-@navbar-bg:                        #eee;
 @navbar-margin-bottom:             @line-height-computed;
+@navbar-color:                     #777;
+@navbar-bg:                        #f8f8f8;
+@navbar-border:                    darken(@navbar-bg, 6.5%);
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
@@ -242,7 +244,7 @@
 @navbar-link-hover-color:          #333;
 @navbar-link-hover-bg:             transparent;
 @navbar-link-active-color:         #555;
-@navbar-link-active-bg:            darken(@navbar-bg, 10%);
+@navbar-link-active-bg:            darken(@navbar-bg, 6.5%);
 @navbar-link-disabled-color:       #ccc;
 @navbar-link-disabled-bg:          transparent;
 
@@ -262,6 +264,7 @@
 // Reset inverted navbar basics
 @navbar-inverse-color:                      @gray-light;
 @navbar-inverse-bg:                         #222;
+@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links
 @navbar-inverse-link-color:                 @gray-light;
@@ -595,10 +598,10 @@
 // --------------------------------------------------
 
 // Small screen / tablet
-@container-tablet:          728px;
+@container-tablet:          720px;
 
 // Medium screen / desktop
 @container-desktop:         940px;
 
 // Large screen / wide desktop
-@container-large-desktop:   1170px;
+@container-large-desktop:   1140px;
