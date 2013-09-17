@@ -56,7 +56,8 @@ module.exports = function(grunt) {
           'js/scrollspy.js',
           'js/tab.js',
           'js/affix.js',
-          'js/toggle-btn-group-ef.js'
+          'js/toggle-btn-group-ef.js',
+          'js/stepper-ef.js'
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
       }

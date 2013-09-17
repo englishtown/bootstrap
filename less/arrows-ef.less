@@ -1,0 +1,35 @@
+//
+// Numeric stepper
+// --------------------------------------------------
+
+.arrows {
+  display: inline-block;
+  & .btn {
+    width: @arrows-btn-width;
+    height: @arrows-btn-height;
+    padding: 0;
+    background-color: @arrows-btn-bg;
+    .transition(~"background-color ease-in-out .15s");
+
+    &:hover {
+      background-color: @arrows-btn-hover-bg;
+    }
+
+    &:active {
+      background-color: @arrows-active-bg;
+    }
+
+    & .caret {
+      border-top: @caret-width-base solid @arrows-btn-border;
+    }
+  }
+
+  & .btn-up {
+    border-bottom: 1px solid @arrows-btn-border;
+
+    & .caret {
+      border-top: 0;
+      border-bottom: @caret-width-base solid @arrows-btn-border;
+    }
+  } 
+}

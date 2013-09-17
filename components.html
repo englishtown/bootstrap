@@ -3586,3 +3586,84 @@ body { padding-bottom: 70px; }
 {% endhighlight %}
 
   </div>
+  <!-- TEXT INPUT VARIANTS
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="textinputvariants">Text input variants</h1>
+    </div>
+
+    <h2 id="stepper">Stepper</h2>
+
+    <div class="bs-example">
+      <span class="stepper">
+        <input class="form-control" type="number" />
+        <span class="arrows">
+          <button type="button" class="btn btn-up">
+            <span class="caret"></span>
+          </button>
+          <button type="button" class="btn btn-down">
+            <span class="caret"></span>
+          </button>
+        </span>
+      </span>
+      <span class="stepper">
+        <input class="form-control" type="number" disabled="disabled" />
+        <span class="arrows">
+          <button type="button" class="btn btn-up">
+            <span class="caret"></span>
+          </button>
+          <button type="button" class="btn btn-down">
+            <span class="caret"></span>
+          </button>
+        </span>
+      </span>
+      <span class="stepper" data-min="-1" data-max="1" data-step="2">
+        <input class="form-control" type="number" />
+        <span class="arrows">
+          <button type="button" class="btn btn-up">
+            <span class="caret"></span>
+          </button>
+          <button type="button" class="btn btn-down">
+            <span class="caret"></span>
+          </button>
+        </span>
+      </span>
+    </div>
+    {% highlight html %}
+    <span class="stepper">
+      <input class="form-control" type="number" />
+      <span class="arrows">
+        <button type="button" class="btn btn-up">
+          <span class="caret"></span>
+        </button>
+        <button type="button" class="btn btn-down">
+          <span class="caret"></span>
+        </button>
+      </span>
+    </span>
+    <span class="stepper">
+      <input class="form-control" type="number" disabled="disabled" />
+      <span class="arrows">
+        <button type="button" class="btn btn-up">
+          <span class="caret"></span>
+        </button>
+        <button type="button" class="btn btn-down">
+          <span class="caret"></span>
+        </button>
+      </span>
+    </span>
+    <span class="stepper" data-min="-1" data-max="1" data-step="2">
+      <input class="form-control" type="number" />
+      <span class="arrows">
+        <button type="button" class="btn btn-up">
+          <span class="caret"></span>
+        </button>
+        <button type="button" class="btn btn-down">
+          <span class="caret"></span>
+        </button>
+      </span>
+    </span>
+    {% endhighlight %}
+  </div>
+

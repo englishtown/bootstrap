@@ -1,0 +1,34 @@
+//
+// Numeric stepper
+// --------------------------------------------------
+
+.stepper {
+  display: inline-block;
+
+  & .form-control {
+    width: @stepper-input-width;
+    border-right: 0;
+    float: left;
+    text-align: center;
+  }
+
+  & .arrows {
+    float: left;
+    & .btn {
+      display: block;
+    }
+  }
+
+  & .form-control.disabled + .arrows .btn,
+  & .form-control[disabled] + .arrows .btn,
+  fieldset[disabled] & .form-control + .arrows .btn {
+    .opacity(@brand-variant-disable-computed);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: @arrows-btn-bg;
+      cursor: not-allowed;
+    }
+  }
+
+}
